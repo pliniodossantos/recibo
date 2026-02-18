@@ -1,0 +1,182 @@
+:root{
+  --border:#222;
+  --muted:#666;
+}
+
+/* Base layout */
+:root{
+  --page-width:700px;
+  --bg:#fbfbfb; /* very light gray */
+  --paper:#ffffff;
+  --text:#000000;
+  --border:#000000;
+  --muted:#666666;
+}
+
+html,body,#root{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  font-family: Arial, Helvetica, sans-serif;
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.recibo-root{display:flex;justify-content:center;padding:32px}
+
+.recibo-card{
+  width:var(--page-width);
+  background:var(--paper);
+  border:1px solid var(--border);
+  padding:18px 22px;
+  box-sizing:border-box;
+  color:var(--text);
+}
+
+/* Action buttons (outside printed area) */
+.recibo-actions{display:flex;justify-content:flex-end;gap:12px;max-width:var(--page-width);margin:0 auto 12px}
+.recibo-actions .btn-add{
+  background:#000000;color:#ffffff;border:1px solid #000000;padding:8px 14px;cursor:pointer;box-sizing:border-box;
+  font-size:14px;font-weight:600;align-self:center; border-radius:0;
+}
+.recibo-actions .btn-add:hover{background:#222222}
+.recibo-actions .btn-print{
+  background:#ffffff;color:#000000;border:1px solid #000000;padding:8px 12px;cursor:pointer;box-sizing:border-box;
+  font-size:14px;font-weight:600;align-self:center;border-radius:0
+}
+.recibo-actions .btn-print:hover{background:#f0f0f0}
+.no-print{display:block}
+
+/* Header edit inputs (match recibo typography) */
+.sub-input, .title-input, .phone-input{
+  display:block;
+  width:100%;
+  font-family: inherit;
+  color:var(--text);
+  background:transparent;
+  border:none;
+  text-align:center;
+}
+.sub-input{font-size:12px;color:var(--muted);margin-bottom:2px}
+.title-input{font-size:26px;font-weight:700;letter-spacing:0.5px;margin:4px 0}
+.phone-input{font-weight:700;text-align:right}
+.phone-text{font-weight:700}
+
+/* Header edit buttons: follow existing action button styles but smaller */
+.btn-edit, .btn-save, .btn-cancel{
+  background:#ffffff;color:#000000;border:1px solid #000000;padding:6px 10px;cursor:pointer;box-sizing:border-box;
+  font-size:13px;font-weight:600;border-radius:0
+}
+.btn-edit:hover, .btn-save:hover, .btn-cancel:hover{background:#f0f0f0}
+.btn-save{background:#000000;color:#ffffff}
+.btn-save:hover{background:#111}
+
+/* Address edit inputs: match address typography and width */
+.address{font-size:12px;color:var(--muted);margin-top:4px}
+.address-edit{display:flex;flex-direction:column;align-items:flex-start}
+.address-input{
+  width:100%;
+  font-family:inherit;
+  font-size:12px;
+  color:var(--muted);
+  background:transparent;
+  border:none;
+  padding:0;
+  margin:0;
+  text-align:left;
+}
+.address-input:focus{outline:none}
+
+/* Header */
+.recibo-header{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:10px}
+.brand{flex:1;text-align:left}
+.brand .sub{font-size:12px;color:var(--muted);margin-bottom:2px}
+.brand h1{margin:4px 0;font-size:26px;letter-spacing:0.5px;text-align:center}
+.brand .address{font-size:12px;color:var(--muted);margin-top:4px}
+
+.meta{width:220px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.meta .phone{font-weight:700}
+.checkbox{font-size:13px}
+.date{font-size:13px}
+
+/* Customer info */
+.customer{padding:12px 0;border-bottom:1px solid var(--border);font-size:14px;display:flex;flex-direction:column;gap:6px}
+.customer div{width:100%}
+
+/* Table */
+.table{padding-top:12px}
+.table-head{display:flex;padding:8px;background:#f0f0f0;border:1px solid var(--border);border-bottom:none;font-weight:700}
+.table-head .col{padding:8px}
+.table-body{display:flex;flex-direction:column;border:1px solid var(--border);border-top:none}
+.table-row{display:flex;align-items:center;border-top:1px solid var(--border)}
+
+.col{padding:8px;box-sizing:border-box;border-left:1px solid var(--border)}
+.table-head .col:first-child, .table-body .col:first-child{border-left:none}
+.col.qty{width:70px;flex:0 0 80px;text-align:left}
+.col.desc{flex:1;min-width:220px}
+.col.unit{width:140px;flex:0 0 140px}
+.col.total{width:160px;flex:0 0 160px;display:flex;align-items:center;justify-content:flex-end;gap:8px}
+
+.table input{width:85%;padding:6px;border:1px solid #000;background:transparent;color:var(--text);font-size:14px}
+.table input:focus{outline:2px solid #000}
+
+.line-total{min-width:100px;text-align:right;font-weight:600}
+.remove{margin-left:8px;background:transparent;border:1px solid var(--border);color:var(--text);padding:4px 8px;border-radius:3px;cursor:pointer}
+.remove:hover{background:#eee}
+
+/* Controls */
+.controls{display:flex;justify-content:flex-start;padding:12px 0}
+.add{padding:8px 12px;background:transparent;border:1px solid var(--border);border-radius:4px;cursor:pointer}
+
+/* Footer */
+.recibo-footer{display:flex;justify-content:space-between;align-items:center;padding-top:12px;border-top:1px solid var(--border);margin-top:10px}
+.left-note{font-size:12px;color:var(--muted)}
+.grand{display:flex;align-items:center;gap:12px}
+.grand .label{font-weight:700}
+.grand .amount{font-size:20px;font-weight:800;border:1px solid var(--border);padding:8px 14px;border-radius:4px}
+
+/* Spacing tweaks for visual parity */
+.recibo-card .brand h1{font-weight:700}
+
+/* Print styles */
+@media print{
+  :root{background:var(--paper)}
+  body{background:var(--paper);margin:0}
+  .recibo-root{padding:12mm 0}
+  .recibo-card{width:100%;max-width:100%;border:none;padding:0;margin:0}
+  .no-print{display:none !important}
+  .table input{border:none}
+  .table-head{background:#f0f0f0}
+  /* Ensure colors are printed */
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  @page{size:A4;margin:12mm}
+}
+
+/* Customer and Date field styles (print-like) */
+.customer .field-row{display:flex;align-items:center;gap:8px;padding:4px 0}
+.field-label{width:60px;font-weight:600}
+.cust-input{
+  flex:1;
+  border:none;
+  border-bottom:1px solid var(--border);
+  background:var(--paper);
+  color:var(--text);
+  padding:2px 4px;
+  font-size:14px;
+}
+.cust-input:focus{outline:none}
+.date{display:flex;flex-direction:column;align-items:flex-end;font-size:13px}
+.date-input{
+  border:none;
+  border-bottom:1px solid var(--border);
+  background:var(--paper);
+  color:var(--text);
+  padding:2px 4px;
+  font-size:13px;
+}
+
+@media print{
+  .cust-input, .date-input{border-bottom:1px solid var(--border)}
+}
+
